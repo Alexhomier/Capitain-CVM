@@ -86,6 +86,7 @@ public class PlayerData
         this.UIPerteVie = null;
         this.Gameover = null;
         this._chestOpenList = new List<string>();
+        this._completedLevel = new List<string>();
     }
 
     public PlayerData(int vie = 1, int energie = 2, int score = 0,
@@ -103,6 +104,9 @@ public class PlayerData
         this.UIPerteVie += uiPerteVie;
         this.Gameover += gameOver;
         this._chestOpenList = new List<string>();
+        this._completedLevel = new List<string>();
+        if (ChestList != null)
+            this._chestOpenList = ChestList;
         if (ChestList != null)
             this._chestOpenList = ChestList;
     }
