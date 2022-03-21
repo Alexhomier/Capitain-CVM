@@ -42,6 +42,10 @@ public class PlayerData
     /// </summary>
     private int _score;
     /// <summary>
+    /// Représente le score obtenu
+    /// </summary>
+    private List<string> _completedLevel;
+    /// <summary>
     /// Liste des coffres ouverts dans le jeu
     /// </summary>
     private List<string> _chestOpenList;
@@ -68,6 +72,7 @@ public class PlayerData
     public int Vie { get { return this._vie; } }
     public int Score { get { return this._score; } }
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
+    public string[] LevelCompleted { get { return this._completedLevel.ToArray(); } }
 
     public PlayerData()
     {

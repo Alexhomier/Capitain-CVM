@@ -9,7 +9,7 @@ public class EnnemyPatrol : MonoBehaviour
     /// Vitesse de l'objet en patrouille
     /// </summary>
     [SerializeField]
-    private float _vitesse = 3f;
+    public float vitesse = 3f;
     /// <summary>
     /// Liste de GO représentant les points à atteindre
     /// </summary>
@@ -40,11 +40,16 @@ public class EnnemyPatrol : MonoBehaviour
         _cible = _points[_indexPoint];
     }
 
+    public void setSpeed(float speed)
+    {
+        vitesse = speed;
+    }
+
     // Update is called once per frame
     void Update()
     {
         Vector3 direction = _cible.position - this.transform.position;
-        this.transform.Translate(direction.normalized * _vitesse * Time.deltaTime, Space.World);
+        this.transform.Translate(direction.normalized * vitesse * Time.deltaTime, Space.World);
 
         if (direction.x < 0 && !_sr.flipX) _sr.flipX = true;
         else if (direction.x > 0 && _sr.flipX) _sr.flipX = false;
