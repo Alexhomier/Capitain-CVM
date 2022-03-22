@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinDeNiveau : MonoBehaviour
+public class FinNiveau : MonoBehaviour
 {
     public int scene;
 
-    public start()
+    public void Start()
     {
         scene = SceneManager.GetActiveScene().buildIndex + 1;
     }

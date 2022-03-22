@@ -19,6 +19,8 @@ public static class PlayerDataJson
         json += tab + "\"energie\":" + data.Energie + "," + newline;
         json += tab + "\"score\":" + data.Score + "," + newline;
         json += tab + "\"niveau\":" + data.Niveau + "," + newline;
+        json += tab + "\"collectable1\":" + data.Collectable1 + "," + newline;
+        json += tab + "\"collectable1\":" + data.Collectable2 + "," + newline;
         json += tab + "\"volumeGeneral\":" + data.VolumeGeneral.ToString().Replace(',', '.') + "," + newline; 
         json += tab + "\"volumeMusique\":" + data.VolumeMusique.ToString().Replace(',', '.') + "," + newline; 
         json += tab + "\"volumeEffet\":" + data.VolumeEffet.ToString().Replace(',', '.') + "," + newline; 
@@ -59,7 +61,7 @@ public static class PlayerDataJson
             throw new JSONFormatExpcetion();
         json = json.Replace("\t", string.Empty);
 
-        int vie = 0, energie = 0, score = 0;
+        int vie = 0, energie = 0, score = 0, niveau = 0, collectable1 = 0, collectable2 = 0;
         float vlmGeneral = 0, vlmMusique = 0, vlmEffet = 0;
         List<string> chests = new List<string>();
         string[] lignes = json.Split('\n');
@@ -82,6 +84,15 @@ public static class PlayerDataJson
                     break;
                 case "\"score\"":
                     score = int.Parse(parametre[1].Replace(",", string.Empty));
+                    break;
+                case "\"niveau\"":
+                    niveau = int.Parse(parametre[1].Replace(",", string.Empty));
+                    break;
+                case "\"collectable1\"":
+                    collectable1 = int.Parse(parametre[1].Replace(",", string.Empty));
+                    break;
+                case "\"collectable2\"":
+                    collectable2 = int.Parse(parametre[1].Replace(",", string.Empty));
                     break;
                 case "\"volumeGeneral\"":
                     vlmGeneral = float.Parse(parametre[1].Replace(",", string.Empty).Replace('.', ','));
@@ -107,7 +118,7 @@ public static class PlayerDataJson
             }
         }
 
-        return new PlayerData(vie, energie, score, vlmGeneral, vlmMusique, vlmEffet, ChestList: chests);
+        return new PlayerData(vie, energie, score, niveau, collectable1, collectable2, vlmGeneral, vlmMusique, vlmEffet, ChestList: chests);
     }
 }
 

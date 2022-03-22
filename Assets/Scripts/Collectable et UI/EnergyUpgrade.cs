@@ -11,6 +11,8 @@ public class EnergyUpgrade : MonoBehaviour
     private int _regainEnergie = 1;
     [SerializeField]
     private AudioClip _clip;
+    [SerializeField]
+    private bool isCollectable2;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,6 +23,13 @@ public class EnergyUpgrade : MonoBehaviour
             GameManager.Instance
                 .PlayerData.IncrEnergie(this._regainEnergie);
             GameObject.Destroy(this.gameObject);
+
+            if (this.isCollectable2)
+            {
+                Debug.Log(this.isCollectable2);
+                PlayerPrefs.SetInt("ring", 1);
+
+            }
         }
     }
 }

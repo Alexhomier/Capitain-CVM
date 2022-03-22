@@ -11,6 +11,8 @@ public class ScoreUpgrade : MonoBehaviour
     private int _gainPoint = 3;
     [SerializeField]
     private AudioClip _clip;
+    [SerializeField]
+    private bool isCollectable1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,6 +23,9 @@ public class ScoreUpgrade : MonoBehaviour
             GameManager.Instance
                 .PlayerData.IncrScore(this._gainPoint);
             GameObject.Destroy(this.gameObject);
+
+            if (this.isCollectable1)
+                PlayerPrefs.SetInt("coin", 1);
         }
     }
 }

@@ -19,6 +19,16 @@ public class MainMenuButtonAction : MonoBehaviour
         {
             boutonNiveau[i].interactable = true;
         }
+
+        if(PlayerPrefs.GetInt("coin") > 0)
+        {
+            collectables[1].interactable = true;
+        }
+        if (PlayerPrefs.GetInt("ring") > 0)
+        {
+            Debug.Log(PlayerPrefs.GetInt("ring"));
+            collectables[0].interactable = true;
+        }
     }
 
 
