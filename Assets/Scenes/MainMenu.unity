@@ -1310,6 +1310,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c524a5eeffc10e44da581131365e7e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boutonNiveau:
+  - {fileID: 1534914109}
+  - {fileID: 1138826157}
+  - {fileID: 276961653}
+  collectables: []
 --- !u!1 &462424166
 GameObject:
   m_ObjectHideFlags: 0
@@ -6937,7 +6942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.43235418, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2694, y: 0}
+  m_AnchoredPosition: {x: -2693.9998, y: 0}
   m_SizeDelta: {x: -0.9938965, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088613748

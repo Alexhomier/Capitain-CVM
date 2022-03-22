@@ -67,10 +67,15 @@ public class PlayerData
     /// Permet d'identifier les actions à réaliser lors d'un gameover
     /// </summary>
     public System.Action Gameover;
+    /// <summary>
+    /// Permet d'identifier les actions à réaliser lors d'un gameover
+    /// </summary>
+    public int _niveau;
 
     public int Energie { get { return this._energie; } }
     public int Vie { get { return this._vie; } }
     public int Score { get { return this._score; } }
+    public int Niveau { get { return this._niveau; } }
     public string[] ListeCoffreOuvert { get { return this._chestOpenList.ToArray(); } }
     public string[] LevelCompleted { get { return this._completedLevel.ToArray(); } }
 
@@ -105,8 +110,6 @@ public class PlayerData
         this.Gameover += gameOver;
         this._chestOpenList = new List<string>();
         this._completedLevel = new List<string>();
-        if (ChestList != null)
-            this._chestOpenList = ChestList;
         if (ChestList != null)
             this._chestOpenList = ChestList;
     }
@@ -174,6 +177,14 @@ public class PlayerData
     public void IncrScore(int gain = 1)
     {
         this._score += gain;
+    }
+
+    /// <summary>
+    /// Augmente le niveau du joueur
+    /// </summary>
+    public void IncrNiveau()
+    {
+        this._niveau += 1;
     }
 
     /// <summary>
