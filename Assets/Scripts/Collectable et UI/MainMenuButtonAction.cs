@@ -4,6 +4,26 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtonAction : MonoBehaviour
 {
+    public Button[] boutonNiveau;
+    public Button[] collectables;
+    void start()
+    {
+        int niveauActuelle = PlayerPrefs.GetInt("niveauActuelle", 1);
+
+        for (int i = 0; i < boutonNiveau.Length; i++)
+        {
+            boutonNiveau[i].interactable = false;
+        }
+
+        for (int i = 0; i < niveauActuelle - 1; i++)
+        {
+            boutonNiveau[i].interactable = true;
+        }
+    }
+
+
+
+
     /// <summary>
     /// Permet d'afficher un panel transmis en paramètre
     /// </summary>
@@ -38,4 +58,5 @@ public class MainMenuButtonAction : MonoBehaviour
     {
         Application.Quit();
     }
+
 }
